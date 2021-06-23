@@ -50,7 +50,7 @@ function sendAll (message) {
     });
 }
 const { TwitterApi } = require('twitter-api-v2'); // npm i twitter-api-v2
-const twitterClient = new TwitterApi('AAAAAAAAAAAAAAAAAAAAAFm1QwEAAAAAUgZJ1ipdvdli01S9%2FBEOxkvZgx4%3D7wGHlkyQOphgVKpNOlD21Yb9wJmlY0JZ3Ocl8iniN3WxwuMUXd').readOnly;
+const twitterClient = new TwitterApi('').readOnly;
 var tweetIDs = []; // tweets previously seen
 var theTweets = []; // tweets to send to MCUs
 
