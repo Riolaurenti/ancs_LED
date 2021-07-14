@@ -212,6 +212,10 @@ var intervalFunction = function() {
 			value.ws.send(JSON.stringify(toSend));
 		}
 	}
+	if (Object.keys(CLIENTS).length === 0){
+		console.log("No clients, wont bother doing twitter");
+		doTwitter = false;
+	}
 	if (theTweets.length > 0 && Object.keys(CLIENTS).length > 0){ // be sure we have a tweet, and at least 1 client
 		had_tweets = true;
 		tweetToSend = theTweets.shift(); // get the first tweet 
