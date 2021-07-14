@@ -176,10 +176,24 @@ wss.on('connection', function connection(ws) {
 			var reply = {"command":"insert","val":true};
 			ws.send(JSON.stringify(reply));
 		}
+		else if (obj.command === "pattern"){
+			var toSend = {"command":"pattern"} // make run pattern
+			for (const [key, value] of Object.entries(CLIENTS)) { // iterate clients
+				value.ws.send(JSON.stringify(toSend)); // turn to string and send
+			}
+		}
 		else if (obj.command === "skip"){
 			console.log("got skip request from ",ws.id);
-			clearInterval(interval);
-			interval = setInterval(intervalFunction, wait_time);
+			clearInterval(interval); // stop the interval from running
+			if (theTweets.length > 0){
+				tweetToSend = theTweets.shift(); // get the first tweet 
+				
+			} else {
+				tweetToSend = {"user":"null","text":"null"} // theres nothing
+			}
+			tweetToSend["command"] = "tweet"; // so the parser knows what type of command it is
+			tweetAll();
+			interval = setInterval(intervalFunction, wait_time); // set the interval off again (reset the timer) 
 		}
 		else {
 			console.log("UNKNOWN COMMAND")
