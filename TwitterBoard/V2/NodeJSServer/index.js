@@ -174,7 +174,7 @@ wss.on('connection', function connection(ws) {
 			theTweets.unshift(obj);
 			console.log(theTweets);
 			var reply = {"command":"insert","val":true};
-			ws.send(JSON.stringify);
+			ws.send(JSON.stringify(reply));
 		}
 		else if (obj.command === "skip"){
 			console.log("got skip request from ",ws.id);
