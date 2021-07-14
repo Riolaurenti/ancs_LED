@@ -75,13 +75,12 @@ __meta__ = {
 }
 
 [node name="TextLbl" type="Label" parent="."]
-margin_left = 10.3303
-margin_top = 154.0
-margin_right = 320.33
-margin_bottom = 283.0
+margin_left = 23.0
+margin_top = 153.0
+margin_right = 323.0
+margin_bottom = 281.0
 rect_scale = Vector2( 2.6, 2.6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-valign = 1
 autowrap = true
 clip_text = true
 __meta__ = {
